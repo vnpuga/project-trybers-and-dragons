@@ -10,18 +10,14 @@ export default class PVE extends Battle {
     super(player1);
   }
 
+  // grata pela ajuda do Ivan e Rafa da instrução
   fight(): number {
-    let winner = 0;
     this._monsters.forEach((monster) => {
-      this.player1.attack(monster);
-      if (monster.lifePoints <= 0) {
-        winner = 1;
-      }
-      monster.attack(this.player1);
-      if (this.player1.lifePoints <= 0) {
-        winner = -1;
+      while (this.player1.lifePoints > 0 && monster.lifePoints > 0) {
+        this.player1.attack(monster);
+        monster.attack(this.player1);
       }
     });
-    return winner;
+    return super.fight();
   }
 }

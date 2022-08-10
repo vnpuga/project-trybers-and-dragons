@@ -9,15 +9,12 @@ export default class PVP extends Battle {
     super(player1);
   }
 
+  // grata pela ajuda do Ivan e Rafa da instrução
   fight(): number {
-    this.player1.attack(this._player2);
-    if (this._player2.lifePoints <= 0) {
-      return 1;
+    while (this.player1.lifePoints > 0 && this._player2.lifePoints > 0) {
+      this.player1.attack(this._player2);
+      this._player2.attack(this.player1);
     }
-    this._player2.attack(this.player1);
-    if (this.player1.lifePoints <= 0) {
-      return -1;
-    }
-    return 0;
+    return super.fight();
   }
 }

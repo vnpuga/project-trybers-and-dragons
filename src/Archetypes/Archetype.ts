@@ -22,6 +22,7 @@ export default abstract class Archetype {
     return this._cost;
   }
 
+  // método static não precisa acessar nenhum artibuto do objeto, ele tem a ver c/a classe
   static createdArchetypeInstances(): number {
     throw new Error('Not implemented');
   }
